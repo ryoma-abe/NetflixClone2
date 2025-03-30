@@ -8,7 +8,11 @@ function App() {
 
   return (
     <div className="App">
-      <Row fetchUrl={requests.fetchNetflixOriginals} title="テスト" />
+      <Row
+        fetchUrl={requests.fetchNetflixOriginals}
+        title="テスト"
+        isLargeRow={true}
+      />
     </div>
   );
 }

@@ -8,9 +8,10 @@ export const useProps = () => {
   useEffect(() => {
     const fetchData = async () => {
       const request = await instance.get(requests.fetchNetflixOriginals);
-      setRandomMovie(
-        Math.floor(Math.random() * request.data.results.length - 1)
+      const randomIndex = Math.floor(
+        Math.random() * request.data.results.length - 1
       );
+      setRandomMovie(request.data.results[randomIndex]);
     };
     fetchData();
   }, []);

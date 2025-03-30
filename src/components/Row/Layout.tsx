@@ -13,7 +13,10 @@ export const Layout = ({ title, movies, isLargeRow }: Props) => {
       <div className="flex overflow-y-hidden overflow-x-scroll p-5 scrollbar-hide">
         {movies.map((movie: Movie) => (
           <img
-            className={`max-h-24 ${isLargeRow ? "max-h-60" : ""}`}
+            key={movie.id}
+            className={`max-h-24 object-contain w-full m-2 ${
+              isLargeRow ? "max-h-60" : ""
+            }`}
             src={`${image_url}${
               isLargeRow ? movie.poster_path : movie.backdrop_path
             }`}

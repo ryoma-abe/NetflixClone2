@@ -18,7 +18,7 @@ export const useProps = (fetchUrl: string) => {
         return {
           id: movie.id,
           name: movie.name,
-          poster_path: movie.backdrop_path,
+          poster_path: movie.poster_path,
           backdrop_path: movie.backdrop_path,
         };
       });

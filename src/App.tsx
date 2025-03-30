@@ -13,6 +13,17 @@ function App() {
         title="テスト"
         isLargeRow={true}
       />
+      <Row
+        fetchUrl={requests.fetchDocumentMovies}
+        title="テスト"
+        isLargeRow={false}
+      />
+      <Row
+        fetchUrl={requests.fetchKidsMovies
+        }
+        title="テスト"
+        isLargeRow={false}
+      />
     </div>
   );
 }

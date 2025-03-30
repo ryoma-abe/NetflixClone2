@@ -8,7 +8,7 @@ export type Movie = {
   backdrop_path: string;
 };
 
-export const useProps = ({ fetchUrl }: { fetchUrl: string }) => {
+export const useProps = (fetchUrl: string) => {
   // 映画のデータを保存しておくためのステート
   const [movie, setMovie] = useState<Array<Movie>>([]);
   useEffect(() => {

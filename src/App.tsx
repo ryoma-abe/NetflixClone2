@@ -3,7 +3,7 @@ import { useProps } from "./components/Row/useProps";
 import { requests } from "./request";
 
 function App() {
-  const result = useProps({ fetchUrl: requests.fetchNetflixOriginals });
+  const result = useProps(requests.fetchNetflixOriginals);
   console.log(result);
 
   return (

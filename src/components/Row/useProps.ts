@@ -1,12 +1,6 @@
 import { instance } from "../../axios";
 import { useEffect, useState } from "react";
-
-export type Movie = {
-  id: string;
-  name: string;
-  poster_path: string;
-  backdrop_path: string;
-};
+import { Movie } from "../../type";
 
 export const useProps = (fetchUrl: string) => {
   // 映画のデータを保存しておくためのステート

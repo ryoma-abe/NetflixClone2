@@ -1,29 +1,20 @@
 import { Row } from "./components/Row/index";
-import { useProps } from "./components/Row/useProps";
 import { requests } from "./request";
 
 function App() {
-  const result = useProps(requests.fetchNetflixOriginals);
-  console.log(result);
-
   return (
     <div className="App">
       <Row
+        title="NETFLIX ORIGUINALS"
         fetchUrl={requests.fetchNetflixOriginals}
-        title="テスト"
-        isLargeRow={true}
+        isLargeRow
       />
-      <Row
-        fetchUrl={requests.fetchDocumentMovies}
-        title="テスト"
-        isLargeRow={false}
-      />
-      <Row
-        fetchUrl={requests.fetchKidsMovies
-        }
-        title="テスト"
-        isLargeRow={false}
-      />
+      <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
+      <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} />
+      <Row title="News Movies" fetchUrl={requests.fetchNewsMovies} />
+      <Row title="Kids Movies" fetchUrl={requests.fetchKidsMovies} />
+      <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies} />
+      <Row title="Documentaries" fetchUrl={requests.fetchDocumentMovies} />
     </div>
   );
 }

@@ -11,6 +11,6 @@ export const requests = {
   fetchRomanceMovies: `${BASE_URL}/discover/tv?api_key=${API_KEY}&with_genres=10749&watch_region=JP&language=ja-JP`,
   fetchDocumentMovies: `${BASE_URL}/discover/tv?api_key=${API_KEY}&with_genres=99&watch_region=JP&language=ja-JP`,
   fetchMovieVideos: (movieId: string) => {
-    return `/tv/${movieId}/videos?api_key=${API_KEY}`;
+    return `${BASE_URL}/tv/${movieId}/videos?api_key=${API_KEY}`;
   },
 };

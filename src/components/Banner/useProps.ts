@@ -16,5 +16,11 @@ export const useProps = () => {
     fetchData();
   }, []);
 
-  return { randomMovie };
+  // 文字を切り取る関数
+  const truncate = (str: string | undefined, n: number) => {
+    if (!str) return "";
+    return str.length > n ? str.substr(0, n - 1) + "..." : str;
+  };
+
+  return { randomMovie, truncate };
 };

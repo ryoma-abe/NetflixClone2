@@ -1,10 +1,15 @@
 import { instance } from "../../axios";
 import { useEffect, useState } from "react";
 import { Movie } from "../../type";
+import axios from "axios";
+import { requests } from "../../request";
 
 export const useProps = (fetchUrl: string) => {
   // 映画のデータを保存しておくためのステート
   const [movie, setMovie] = useState<Array<Movie>>([]);
+  // クリックされた映画のURLを保存しておくためのステート
+  // const [trailerUrl, setTrailerUrl] = useState<string>("");
+
   useEffect(() => {
     const fetchData = async () => {
       const request = await instance.get(fetchUrl);
@@ -21,7 +26,12 @@ export const useProps = (fetchUrl: string) => {
     };
     fetchData();
   }, [fetchUrl]);
-  // APIから映画データを取得
+  const handleClick = async (movie: Movie) => {
+    const moviePlayUrl = await axios.get(requests.fetchMovieVideos(movie.id));
+    console.log(moviePlayUrl);
 
-  return { movie };
+    // setTrailerUrl(moviePlayUrl.data.results);
+  };
+
+  return { movie, handleClick };
 };

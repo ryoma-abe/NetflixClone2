@@ -26,10 +26,15 @@ export const useProps = (fetchUrl: string) => {
     };
     fetchData();
   }, [fetchUrl]);
-  const handleClick = async (movie: Movie) => {
-    const moviePlayUrl = await axios.get(requests.fetchMovieVideos(movie.id));
 
-    setTrailerUrl(moviePlayUrl.data.results[0].key);
+  // クリックした要素の動画を取得
+  const handleClick = async (movie: Movie) => {
+    if (trailerUrl) {
+      setTrailerUrl("");
+    } else {
+      const moviePlayUrl = await axios.get(requests.fetchMovieVideos(movie.id));
+      setTrailerUrl(moviePlayUrl.data.results[0].key);
+    }
   };
 
   return { movie, handleClick, trailerUrl };

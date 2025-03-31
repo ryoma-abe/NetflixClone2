@@ -6,7 +6,6 @@ type Props = {
   title: string;
   movies: Movie[];
   isLargeRow?: boolean;
-  handleClick: () => void;
 };
 const opts = {
   height: "390",

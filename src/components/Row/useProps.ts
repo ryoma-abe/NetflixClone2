@@ -8,7 +8,7 @@ export const useProps = (fetchUrl: string) => {
   // 映画のデータを保存しておくためのステート
   const [movie, setMovie] = useState<Array<Movie>>([]);
   // クリックされた映画のURLを保存しておくためのステート
-  // const [trailerUrl, setTrailerUrl] = useState<string>("");
+  const [trailerUrl, setTrailerUrl] = useState<string>("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,10 +28,9 @@ export const useProps = (fetchUrl: string) => {
   }, [fetchUrl]);
   const handleClick = async (movie: Movie) => {
     const moviePlayUrl = await axios.get(requests.fetchMovieVideos(movie.id));
-    console.log(moviePlayUrl);
 
-    // setTrailerUrl(moviePlayUrl.data.results);
+    setTrailerUrl(moviePlayUrl.data.results[0].key);
   };
 
-  return { movie, handleClick };
+  return { movie, handleClick, trailerUrl };
 };

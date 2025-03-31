@@ -6,7 +6,7 @@ export const Layout = () => {
 
   return (
     <header
-      className="h-96"
+      className="h-100"
       style={{
         backgroundSize: "cover",
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${randomMovie?.backdrop_path}")`,
@@ -19,6 +19,7 @@ export const Layout = () => {
           {randomMovie?.overview}
         </div>
       </div>
+      <div className="gradebg-gradual-gradient h-[7.4rem]"></div>
     </header>
   );
 };

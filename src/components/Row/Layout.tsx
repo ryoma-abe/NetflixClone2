@@ -1,11 +1,12 @@
 import YouTube from "react-youtube";
 import { Movie } from "../../type";
-import { useProps } from "./useProps";
 
 type Props = {
   title: string;
   movies: Movie[];
   isLargeRow?: boolean;
+  handleClick: (movie: Movie) => void;
+  trailerUrl: string;
 };
 const opts = {
   height: "390",
@@ -14,9 +15,14 @@ const opts = {
     autoplay: 1,
   },
 };
-export const Layout = ({ title, movies, isLargeRow }: Props) => {
+export const Layout = ({
+  title,
+  movies,
+  isLargeRow,
+  handleClick,
+  trailerUrl,
+}: Props) => {
   const image_url = "https://image.tmdb.org/t/p/original";
-  const { handleClick, trailerUrl } = useProps("");
   return (
     <div>
       <h2 className="text-3xl text-white p-5">{title}</h2>

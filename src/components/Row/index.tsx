@@ -9,5 +9,14 @@ type Props = {
 
 export const Row = ({ title, isLargeRow, fetchUrl }: Props) => {
   const { movie } = useProps(fetchUrl);
-  return <Layout title={title} isLargeRow={isLargeRow} movies={movie} />;
+  const { handleClick, trailerUrl } = useProps("");
+  return (
+    <Layout
+      title={title}
+      isLargeRow={isLargeRow}
+      movies={movie}
+      handleClick={handleClick}
+      trailerUrl={trailerUrl}
+    />
+  );
 };
